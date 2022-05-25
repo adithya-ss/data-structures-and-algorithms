@@ -1,0 +1,21 @@
+Linear Search:
+    - Values need not be sorted
+    - Time complexity: O(n)
+    - Suitable when data set is small
+
+Binary Search:
+    - Values have to be sorted
+    - Time complexity: O(log n)
+    - Suitable when data set is large
+
+
+Notes: 
+    - Logs are basically the opposite of exponents
+    - Reading values from a list is a constant time operation - O(1)
+    - Logarithmic executions/runtimes are also called sublinear runtimes.
+    - Quadratic: O(n^2)
+    - Cubic: O(n^3)
+    - Quasilinear: O(n log n)2
+    - Cubic > Quadratic > Quasilinear > Linear > Logarithmic
+    - Polynomial runtime are more effecient than exponential runtime.
+    - Brute force algorithms use exponential runtime
