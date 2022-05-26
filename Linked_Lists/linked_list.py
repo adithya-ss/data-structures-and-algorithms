@@ -1,3 +1,8 @@
+from hashlib import new
+from platform import node
+from textwrap import indent
+
+
 class Node:
     '''
     An object for storing node of a linked list.
@@ -56,6 +61,49 @@ class LinkedList:
                 current = current.next_node
             
         return None
+    
+    def insert_new_node(self, data, pos):
+        '''
+        Inserts a new node containing data at given position.
+        '''
+        if pos == 0:
+            self.add_element(data)
+        
+        if pos > 0:
+            new_node = Node(data)
+            curr_ind = pos
+            current = self.head
+
+        while curr_ind > 1:
+            current = new_node.next_node 
+            curr_ind -= 1
+        
+        prev_n = current
+        next_n = current.next_node
+
+        prev_n.next_node = new_node
+        new_node.next_node = next_n
+    
+    def remove_node(self, del_elem):
+        '''
+        Delete a node from the linked list
+        '''
+        current = self.head
+        prev_n = None
+        node_found = False
+
+        while current and not node_found:
+            if current.data == del_elem and current is self.head:
+                node_found = True
+                self.head = current.next_node
+            elif current.data == del_elem:
+                node_found = True
+                prev_n.next_node = current.next_node
+            else:
+                prev_n = current
+                current = current.next_node
+
+        return current
 
     def __repr__(self):
         '''
